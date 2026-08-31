@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Appointments</title>
+  <script src="https://cdn.tailwindcss.com"></script> 
+</head> 
+ 
+<body class="bg-gray-100 min-h-screen"> 
+ 
+<!-- ✅ NAVBAR -->
+<nav class="bg-green-600 text-white p-4">
+  <div class="flex justify-between items-center"> 
+    <h1 class="font-bold text-lg">🏥 MediCare</h1> 
+
+    <!-- DESKTOP -->
+    <div class="hidden md:flex space-x-4"> 
+      <a href="index.html">Home</a> 
+      <a href="book.html">Book</a> 
+      <a href="appointments.html">Appointments</a> 
+    </div> 
+
+    <!-- MOBILE BUTTON -->
+    <button id="menuBtn" class="md:hidden text-2xl">☰</button> 
+  </div> 
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="hidden flex-col mt-4 space-y-2 md:hidden"> 
+    <a href="index.html" class="block bg-green-500 p-2 rounded">Home</a> 
+    <a href="book.html" class="block bg-green-500 p-2 rounded">Book</a> 
+    <a href="appointments.html" class="block bg-green-500 p-2 rounded">Appointments</a> 
+  </div> 
+</nav> 
+ 
+<!-- ✅ TABLE -->
+<div class="max-w-4xl mx-auto mt-10 bg-white p-4 rounded shadow overflow-x-auto"> 
+  <h2 class="text-xl mb-4">📋 Appointments</h2> 
+ 
+  <table class="w-full text-center min-w-[600px]"> 
+    <thead class="bg-green-500 text-white"> 
+      <tr> 
+        <th class="p-2">Name</th> 
+        <th class="p-2">Doctor</th> 
+        <th class="p-2">Date</th> 
+        <th class="p-2">Time</th> 
+        <th class="p-2">Action</th> 
+      </tr> 
+    </thead> 
+    <tbody id="tableBody"></tbody> 
+  </table> 
+</div> 
+ 
+<script> 
+
+// ✅ NAVBAR TOGGLE (safe check added)
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+}
+
+// ✅ LOAD DATA (fresh every time)
+function getAppointments() {
+  return JSON.parse(localStorage.getItem("appointments")) || [];
+}
+
+function displayAppointments() {
+  const tableBody = document.getElementById("tableBody");
+  const appointments = getAppointments(); // 🔥 always fresh data
+
+  if (!tableBody) return;
+
+  if (appointments.length === 0) {
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="5" class="p-4 text-gray-500">
+          No appointments yet
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tableBody.innerHTML = "";
+
+  appointments.forEach((app, index) => {
+    tableBody.innerHTML += `
+      <tr class="border-b">
+        <td class="p-2">${app.name}</td>
+        <td class="p-2">${app.doctor}</td>
+        <td class="p-2">${app.date}</td>
+        <td class="p-2">${app.time}</td>
+        <td class="p-2">
+          <button onclick="deleteAppointment(${index})"
+            class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">
+            Delete
+          </button>
+        </td>
+      </tr>
+    `;
+  });
+}
+
+function deleteAppointment(index) {
+  let appointments = getAppointments(); // 🔥 get latest data
+  appointments.splice(index, 1);
+  localStorage.setItem("appointments", JSON.stringify(appointments));
+  displayAppointments();
+}
+
+// ✅ RUN
+displayAppointments();
+
+</script> 
+ 
+</body> 
+</html>
