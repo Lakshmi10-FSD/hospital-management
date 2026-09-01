@@ -2,99 +2,83 @@
 <html>
 <head>
   <title>Appointments</title>
-  <script src="https://cdn.tailwindcss.com"></script> 
-</head> 
- 
-<body class="bg-gray-100 min-h-screen"> 
- 
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
 <!-- ✅ NAVBAR -->
-<nav class="bg-green-600 text-white p-4">
-  <div class="flex justify-between items-center"> 
-    <h1 class="font-bold text-lg">🏥 MediCare</h1> 
+<nav class="bg-green-600 text-white p-4 shadow-md">
+  <div class="flex justify-between items-center">
+    
+    <h1 class="font-bold text-lg">🏥 MediCare</h1>
 
     <!-- DESKTOP -->
-    <div class="hidden md:flex space-x-4"> 
-      <a href="index.html">Home</a> 
-      <a href="book.html">Book</a> 
-      <a href="appointments.html">Appointments</a> 
-    </div> 
+    <div class="hidden md:flex space-x-6 font-medium">
+      <a href="index.html" class="underline">Home</a>
+      <a href="book.html" class="hover:underline">Book</a>
+      <a href="appoinments.html" class="hover:underline">Appointments</a>
+    </div>
 
-    <!-- MOBILE BUTTON -->
-    <button id="menuBtn" class="md:hidden text-2xl">☰</button> 
-  </div> 
+    <!-- MOBILE -->
+    <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+  </div>
 
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="hidden flex-col mt-4 space-y-2 md:hidden"> 
-    <a href="index.html" class="block bg-green-500 p-2 rounded">Home</a> 
-    <a href="book.html" class="block bg-green-500 p-2 rounded">Book</a> 
-    <a href="appointments.html" class="block bg-green-500 p-2 rounded">Appointments</a> 
-  </div> 
-</nav> 
- 
-<!-- ✅ TABLE -->
-<div class="max-w-4xl mx-auto mt-10 bg-white p-4 rounded shadow overflow-x-auto"> 
-  <h2 class="text-xl mb-4">📋 Appointments</h2> 
- 
-  <table class="w-full text-center min-w-[600px]"> 
-    <thead class="bg-green-500 text-white"> 
-      <tr> 
-        <th class="p-2">Name</th> 
-        <th class="p-2">Doctor</th> 
-        <th class="p-2">Date</th> 
-        <th class="p-2">Time</th> 
-        <th class="p-2">Action</th> 
-      </tr> 
-    </thead> 
-    <tbody id="tableBody"></tbody> 
-  </table> 
-</div> 
- 
-<script> 
+  <div id="mobileMenu" class="hidden flex-col mt-4 space-y-2 md:hidden">
+    <a href="index.html" class="block bg-green-500 p-2 rounded">Home</a>
+    <a href="book.html" class="block bg-green-500 p-2 rounded">Book</a>
+    <a href="appoinments.html" class="block bg-green-500 p-2 rounded">Appointments</a>
+  </div>
+</nav>
 
-// ✅ NAVBAR TOGGLE (safe check added)
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
+<div class="max-w-5xl mx-auto mt-10 bg-white p-6 rounded-xl shadow-lg">
 
-if (menuBtn && mobileMenu) {
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
-}
+  <h2 class="text-2xl font-semibold mb-4">📋 Appointments</h2>
 
-// ✅ LOAD DATA (fresh every time)
+  <table class="w-full text-center border">
+    <thead class="bg-green-500 text-white">
+      <tr>
+        <th class="p-3">Name</th>
+        <th class="p-3">Doctor</th>
+        <th class="p-3">Date</th>
+        <th class="p-3">Time</th>
+        <th class="p-3">Action</th>
+      </tr>
+    </thead>
+
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<script>
 function getAppointments() {
   return JSON.parse(localStorage.getItem("appointments")) || [];
 }
 
 function displayAppointments() {
-  const tableBody = document.getElementById("tableBody");
-  const appointments = getAppointments(); // 🔥 always fresh data
+  let tableBody = document.getElementById("tableBody");
+  let data = getAppointments();
 
-  if (!tableBody) return;
+  tableBody.innerHTML = "";
 
-  if (appointments.length === 0) {
+  if (data.length === 0) {
     tableBody.innerHTML = `
       <tr>
-        <td colspan="5" class="p-4 text-gray-500">
-          No appointments yet
-        </td>
+        <td colspan="5">No Appointments</td>
       </tr>
     `;
     return;
   }
 
-  tableBody.innerHTML = "";
-
-  appointments.forEach((app, index) => {
+  data.forEach((item, index) => {
     tableBody.innerHTML += `
-      <tr class="border-b">
-        <td class="p-2">${app.name}</td>
-        <td class="p-2">${app.doctor}</td>
-        <td class="p-2">${app.date}</td>
-        <td class="p-2">${app.time}</td>
-        <td class="p-2">
-          <button onclick="deleteAppointment(${index})"
-            class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded">
+      <tr>
+        <td>${item.name}</td>
+        <td>${item.doctor}</td>
+        <td>${item.date}</td>
+        <td>${item.time}</td>
+        <td>
+          <button onclick="deleteData(${index})"
+            class="bg-red-500 text-white px-2 py-1 rounded">
             Delete
           </button>
         </td>
@@ -103,17 +87,15 @@ function displayAppointments() {
   });
 }
 
-function deleteAppointment(index) {
-  let appointments = getAppointments(); // 🔥 get latest data
-  appointments.splice(index, 1);
-  localStorage.setItem("appointments", JSON.stringify(appointments));
+function deleteData(index) {
+  let data = getAppointments();
+  data.splice(index, 1);
+  localStorage.setItem("appointments", JSON.stringify(data));
   displayAppointments();
 }
 
-// ✅ RUN
 displayAppointments();
+</script>
 
-</script> 
- 
-</body> 
+</body>
 </html>
