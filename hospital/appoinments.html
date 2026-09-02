@@ -1,101 +1,141 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Appointments</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+		<!DOCTYPE html>
+		<html>
+		<head>
+		  <title>Appointments</title>
+		  <script src="https://cdn.tailwindcss.com"></script>
+		</head>
 
-<body class="bg-gray-100 min-h-screen">
-<!-- ✅ NAVBAR -->
-<nav class="bg-green-600 text-white p-4 shadow-md">
-  <div class="flex justify-between items-center">
-    
-    <h1 class="font-bold text-lg">🏥 MediCare</h1>
+		<body class="bg-gray-100 min-h-screen">
+		<!-- ✅ NAVBAR -->
+		<nav class="bg-emerald-400 text-white p-4 shadow-md">
+		  <div class="flex justify-between items-center">
+			
+			<h1 class="font-bold text-lg">🏥 MediCare</h1>
 
-    <!-- DESKTOP -->
-    <div class="hidden md:flex space-x-6 font-medium">
-      <a href="index.html" class="underline">Home</a>
-      <a href="book.html" class="hover:underline">Book</a>
-      <a href="appoinments.html" class="hover:underline">Appointments</a>
+			<!-- DESKTOP -->
+			<div class="hidden md:flex space-x-6 font-medium">
+			  <a href="index.html" class="underline">Home</a>
+			  <a href="book.html" class="hover:underline">Book</a>
+			  <a href="appoinments.html" class="hover:underline">Appointments</a>
+			</div>
+
+			<!-- MOBILE -->
+			<button id="menuBtn" class="md:hidden text-2xl">☰</button>
+		  </div>
+
+		  <div id="mobileMenu" class="hidden flex-col mt-4 space-y-2 md:hidden">
+			<a href="index.html" class="block bg-green-500 p-2 rounded">Home</a>
+			<a href="book.html" class="block bg-green-500 p-2 rounded">Book</a>
+			<a href="appoinments.html" class="block bg-green-500 p-2 rounded">Appointments</a>
+		  </div>
+		</nav>
+
+		<div class="max-w-5xl mx-auto mt-10 bg-white p-6 rounded-xl shadow-lg">
+
+		  <h2 class="text-2xl font-semibold mb-4">📋 Appointments</h2>
+
+		  <table class="w-full text-center border">
+			<thead class="bg-green-400 text-white">
+			  <tr>
+				<th class="p-3">Name</th>
+				<th class="p-3">Doctor</th>
+				<th class="p-3">Date</th>
+				<th class="p-3">Time</th>
+				<th class="p-3">Action</th>
+			  </tr>
+			</thead>
+
+			<tbody id="tableBody"></tbody>
+		  </table>
+		</div>
+		
+<footer class="bg-emerald-600 text-white mt-16">
+  
+  <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-center md:text-left">
+
+    <!-- ABOUT -->
+    <div>
+      <h2 class="font-bold text-lg mb-2">🏥 MediCare</h2>
+      <p class="text-sm text-emerald-100">
+        Your trusted healthcare partner. Book doctor appointments easily and manage them anytime.
+      </p>
     </div>
 
-    <!-- MOBILE -->
-    <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+    <!-- QUICK LINKS -->
+    <div>
+      <h2 class="font-bold text-lg mb-2">Quick Links</h2>
+      <ul class="space-y-1 text-sm">
+        <li><a href="index.html" class="hover:text-emerald-200">Home</a></li>
+        <li><a href="book.html" class="hover:text-emerald-200">Book</a></li>
+        <li><a href="appoinments.html" class="hover:text-emerald-200">Appointments</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <h2 class="font-bold text-lg mb-2">Contact</h2>
+      <p class="text-sm">📍 Chennai, India</p>
+      <p class="text-sm">📞 +91 98765 43210</p>
+      <p class="text-sm">✉ medicare@gmail.com</p>
+    </div>
+
   </div>
 
-  <div id="mobileMenu" class="hidden flex-col mt-4 space-y-2 md:hidden">
-    <a href="index.html" class="block bg-green-500 p-2 rounded">Home</a>
-    <a href="book.html" class="block bg-green-500 p-2 rounded">Book</a>
-    <a href="appoinments.html" class="block bg-green-500 p-2 rounded">Appointments</a>
+  <!-- BOTTOM -->
+  <div class="text-center text-sm bg-emerald-800 py-3 text-emerald-200">
+    © 2026 MediCare | All Rights Reserved
   </div>
-</nav>
 
-<div class="max-w-5xl mx-auto mt-10 bg-white p-6 rounded-xl shadow-lg">
+</footer>
 
-  <h2 class="text-2xl font-semibold mb-4">📋 Appointments</h2>
 
-  <table class="w-full text-center border">
-    <thead class="bg-green-500 text-white">
-      <tr>
-        <th class="p-3">Name</th>
-        <th class="p-3">Doctor</th>
-        <th class="p-3">Date</th>
-        <th class="p-3">Time</th>
-        <th class="p-3">Action</th>
-      </tr>
-    </thead>
+		<script>
+		function getAppointments() {
+		  return JSON.parse(localStorage.getItem("appointments")) || [];
+		}
 
-    <tbody id="tableBody"></tbody>
-  </table>
-</div>
+		function displayAppointments() {
+		  let tableBody = document.getElementById("tableBody");
+		  let data = getAppointments();
 
-<script>
-function getAppointments() {
-  return JSON.parse(localStorage.getItem("appointments")) || [];
-}
+		  tableBody.innerHTML = "";
 
-function displayAppointments() {
-  let tableBody = document.getElementById("tableBody");
-  let data = getAppointments();
+		  if (data.length === 0) {
+			tableBody.innerHTML = `
+			  <tr>
+				<td colspan="5">No Appointments</td>
+			  </tr>
+			`;
+			return;
+		  }
 
-  tableBody.innerHTML = "";
+		  data.forEach((item, index) => {
+			tableBody.innerHTML += `
+			  <tr>
+				<td>${item.name}</td>
+				<td>${item.doctor}</td>
+				<td>${item.date}</td>
+				<td>${item.time}</td>
+				<td>
+				  <button onclick="deleteData(${index})"
+					class="bg-red-500 text-white px-2 py-1 rounded">
+					Delete
+				  </button>
+				</td>
+			  </tr>
+			`;
+		  });
+		}
 
-  if (data.length === 0) {
-    tableBody.innerHTML = `
-      <tr>
-        <td colspan="5">No Appointments</td>
-      </tr>
-    `;
-    return;
-  }
+		function deleteData(index) {
+		  let data = getAppointments();
+		  data.splice(index, 1);
+		  localStorage.setItem("appointments", JSON.stringify(data));
+		  displayAppointments();
+		}
 
-  data.forEach((item, index) => {
-    tableBody.innerHTML += `
-      <tr>
-        <td>${item.name}</td>
-        <td>${item.doctor}</td>
-        <td>${item.date}</td>
-        <td>${item.time}</td>
-        <td>
-          <button onclick="deleteData(${index})"
-            class="bg-red-500 text-white px-2 py-1 rounded">
-            Delete
-          </button>
-        </td>
-      </tr>
-    `;
-  });
-}
+		displayAppointments();
+		</script>
 
-function deleteData(index) {
-  let data = getAppointments();
-  data.splice(index, 1);
-  localStorage.setItem("appointments", JSON.stringify(data));
-  displayAppointments();
-}
-
-displayAppointments();
-</script>
-
-</body>
-</html>
+		</body>
+		</html>
