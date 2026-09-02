@@ -7,7 +7,7 @@
 
 <body class="bg-gray-100 min-h-screen">
 <!-- ✅ NAVBAR -->
-<nav class="bg-green-600 text-white p-4 shadow-md">
+<nav class="bg-emerald-400 text-white p-4 shadow-md">
   <div class="flex justify-between items-center">
     
     <h1 class="font-bold text-lg">🏥 MediCare</h1>
@@ -50,10 +50,51 @@
   <input id="time" type="time" class="w-full border p-2 rounded mb-3">
 
   <button onclick="bookAppointment()"
-    class="w-full mt-4 bg-green-500 text-white p-2 rounded">
+    class="w-full mt-4 bg-green-400 text-white p-2 rounded">
     Book Appointment
   </button>
 </div>
+
+<!-- ✅ FOOTER (UPDATED) -->
+<footer class="bg-emerald-600 text-white mt-16">
+  
+  <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-center md:text-left">
+
+    <!-- ABOUT -->
+    <div>
+      <h2 class="font-bold text-lg mb-2">🏥 MediCare</h2>
+      <p class="text-sm text-emerald-100">
+        Your trusted healthcare partner. Book doctor appointments easily and manage them anytime.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div>
+      <h2 class="font-bold text-lg mb-2">Quick Links</h2>
+      <ul class="space-y-1 text-sm">
+        <li><a href="index.html" class="hover:text-emerald-200">Home</a></li>
+        <li><a href="book.html" class="hover:text-emerald-200">Book</a></li>
+        <li><a href="appoinments.html" class="hover:text-emerald-200">Appointments</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <h2 class="font-bold text-lg mb-2">Contact</h2>
+      <p class="text-sm">📍 Chennai, India</p>
+      <p class="text-sm">📞 +91 98765 43210</p>
+      <p class="text-sm">✉ medicare@gmail.com</p>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="text-center text-sm bg-emerald-800 py-3 text-emerald-200">
+    © 2026 MediCare | All Rights Reserved
+  </div>
+
+</footer>
+
 
 <script>
 function bookAppointment() {
