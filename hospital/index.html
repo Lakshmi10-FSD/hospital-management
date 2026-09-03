@@ -1,129 +1,131 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>MediCare Home</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+	<!DOCTYPE html>
+	<html>
+	<head>
+	  <title>MediCare Home</title>
+	  <script src="https://cdn.tailwindcss.com"></script>
+	</head>
 
-<body class="bg-gray-100 min-h-screen">
+	<body class="bg-gray-100 min-h-screen">
 
-<!-- ✅ NAVBAR -->
-<nav class="bg-emerald-400 text-white p-4 shadow-md">
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-lg">🏥 MediCare</h1>
+	<!-- ✅ NAVBAR -->
+	<nav class="bg-emerald-400 text-white p-4 shadow-md">
+	  <div class="flex justify-between items-center">
+		<h1 class="font-bold text-lg">🏥 MediCare</h1>
 
-    <div class="hidden md:flex space-x-6 font-medium">
-      <a href="index.html" class="underline">Home</a>
-      <a href="book.html">Book</a>
-      <a href="appoinments.html">Appointments</a>
-    </div>
+		<div class="hidden md:flex space-x-6 font-medium">
+		  <a href="index.html" class="underline">Home</a>
+		  <a href="book.html">Book</a>
+		  <a href="appoinments.html">Appointments</a>
+		</div>
 
-    <button id="menuBtn" class="md:hidden text-2xl">☰</button>
-  </div>
+		<button id="menuBtn" class="md:hidden text-2xl">☰</button>
+	  </div>
 
-  <div id="mobileMenu" class="hidden flex-col mt-4 space-y-2 md:hidden">
-    <a href="index.html" class="block bg-green-500 p-2 rounded">Home</a>
-    <a href="book.html" class="block bg-green-500 p-2 rounded">Book</a>
-    <a href="appoinments.html" class="block bg-green-500 p-2 rounded">Appointments</a>
-  </div>
-</nav>
+	  <div id="mobileMenu" class="hidden flex-col mt-4 space-y-2 md:hidden">
+		<a href="index.html" class="block bg-green-500 p-2 rounded">Home</a>
+		<a href="book.html" class="block bg-green-500 p-2 rounded">Book</a>
+		<a href="appoinments.html" class="block bg-green-500 p-2 rounded">Appointments</a>
+	  </div>
+	</nav>
+	
+	<!-- ✅ HERO -->
+	<img src="images/herosection.jpg" class="w-35 h-35 max-w-full object-cover">
+	<section class="text-center py-20 bg-gradient-to-r from-green-400 to-green-300 text-white">
+	
+	  <h1 class="text-4xl md:text-5xl font-bold mb-4">
+		Book Doctor Appointments Easily
+	  </h1>
+	  <p class="text-lg mb-6">
+		Fast, simple & reliable healthcare booking system
+	  </p>
 
-<!-- ✅ HERO -->
-<section class="text-center py-20 bg-gradient-to-r from-green-400 to-green-300 text-white">
-  <h1 class="text-4xl md:text-5xl font-bold mb-4">
-    Book Doctor Appointments Easily
-  </h1>
-  <p class="text-lg mb-6">
-    Fast, simple & reliable healthcare booking system
-  </p>
+	  <a href="book.html" class="bg-white text-green-600 px-6 py-2 rounded font-semibold mr-2">
+		Book Now
+	  </a>
 
-  <a href="book.html" class="bg-white text-green-600 px-6 py-2 rounded font-semibold mr-2">
-    Book Now
-  </a>
+	  <a href="appoinments.html" class="border border-white px-6 py-2 rounded">
+		View Appointments
+	  </a>
+	</section>
 
-  <a href="appoinments.html" class="border border-white px-6 py-2 rounded">
-    View Appointments
-  </a>
-</section>
+	<!-- ✅ FEATURES -->
+	<section class="max-w-5xl mx-auto mt-12 grid md:grid-cols-3 gap-6 px-4">
 
-<!-- ✅ FEATURES -->
-<section class="max-w-5xl mx-auto mt-12 grid md:grid-cols-3 gap-6 px-4">
+	  <div class="bg-white p-6 rounded-xl shadow text-center">
+		<h3 class="text-xl font-semibold">⚡ Fast Booking</h3>
+		<p class="text-gray-600">Book in seconds</p>
+	  </div>
 
-  <div class="bg-white p-6 rounded-xl shadow text-center">
-    <h3 class="text-xl font-semibold">⚡ Fast Booking</h3>
-    <p class="text-gray-600">Book in seconds</p>
-  </div>
+	  <div class="bg-white p-6 rounded-xl shadow text-center">
+		<h3 class="text-xl font-semibold">👨‍⚕️ Expert Doctors</h3>
+		<p class="text-gray-600">Top specialists</p>
+	  </div>
 
-  <div class="bg-white p-6 rounded-xl shadow text-center">
-    <h3 class="text-xl font-semibold">👨‍⚕️ Expert Doctors</h3>
-    <p class="text-gray-600">Top specialists</p>
-  </div>
+	  <div class="bg-white p-6 rounded-xl shadow text-center">
+		<h3 class="text-xl font-semibold">📅 Easy Management</h3>
+		<p class="text-gray-600">Manage anytime</p>
+	  </div>
 
-  <div class="bg-white p-6 rounded-xl shadow text-center">
-    <h3 class="text-xl font-semibold">📅 Easy Management</h3>
-    <p class="text-gray-600">Manage anytime</p>
-  </div>
+	</section>
 
-</section>
+	<!-- ✅ SERVICES -->
+	<section class="max-w-6xl mx-auto mt-16 px-4">
+	  <h2 class="text-3xl font-bold text-center mb-8 text-emerald-600">Our Services</h2>
 
-<!-- ✅ SERVICES -->
-<section class="max-w-6xl mx-auto mt-16 px-4">
-  <h2 class="text-3xl font-bold text-center mb-8 text-emerald-600">Our Services</h2>
+	  <div class="grid md:grid-cols-4 gap-6 text-center">
+		<div class="bg-white p-6 rounded-xl shadow">🩺 General Checkup</div>
+		<div class="bg-white p-6 rounded-xl shadow">❤️ Cardiology</div>
+		<div class="bg-white p-6 rounded-xl shadow">🦷 Dental Care</div>
+		<div class="bg-white p-6 rounded-xl shadow">👶 Pediatrics</div>
+	  </div>
+	</section>
 
-  <div class="grid md:grid-cols-4 gap-6 text-center">
-    <div class="bg-white p-6 rounded-xl shadow">🩺 General Checkup</div>
-    <div class="bg-white p-6 rounded-xl shadow">❤️ Cardiology</div>
-    <div class="bg-white p-6 rounded-xl shadow">🦷 Dental Care</div>
-    <div class="bg-white p-6 rounded-xl shadow">👶 Pediatrics</div>
-  </div>
-</section>
+	<!-- ✅ DOCTORS -->
+	<section class="bg-gray-50 mt-16 py-16">
+	  <h2 class="text-3xl font-bold text-center mb-10 text-emerald-600">Our Doctors</h2>
 
-<!-- ✅ DOCTORS -->
-<section class="bg-gray-50 mt-16 py-16">
-  <h2 class="text-3xl font-bold text-center mb-10 text-emerald-600">Our Doctors</h2>
+	  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 px-4">
+		<div class="bg-white p-6 rounded-xl shadow text-center">
+		  <img src="images/arjun.jpg"  class="w-24 h-24 mx-auto rounded-full mb-3">
+		  <h3>Dr. Arjun</h3>
+		</div>
 
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 px-4">
-    <div class="bg-white p-6 rounded-xl shadow text-center">
-      <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-24 h-24 mx-auto rounded-full mb-3">
-      <h3>Dr. Arjun</h3>
-    </div>
+		<div class="bg-white p-6 rounded-xl shadow text-center">
+		  <img src="images/priya.jpg" class="w-24 h-24 mx-auto rounded-full mb-3">
+		  <h3>Dr. Priya</h3>
+		</div>
 
-    <div class="bg-white p-6 rounded-xl shadow text-center">
-      <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-24 h-24 mx-auto rounded-full mb-3">
-      <h3>Dr. Priya</h3>
-    </div>
+		<div class="bg-white p-6 rounded-xl shadow text-center">
+		  <img src="images/ragul.jpg" class="w-24 h-24 mx-auto rounded-full mb-3">
+		  <h3>Dr. Rahul</h3>
+		</div>
+	  </div>
+	</section>
 
-    <div class="bg-white p-6 rounded-xl shadow text-center">
-      <img src="https://randomuser.me/api/portraits/men/75.jpg" class="w-24 h-24 mx-auto rounded-full mb-3">
-      <h3>Dr. Rahul</h3>
-    </div>
-  </div>
-</section>
+	<!-- ✅ CTA -->
+	<section class="bg-emerald-500 text-white text-center py-16 mt-16">
+	  <h2 class="text-3xl font-bold mb-4">Need a Doctor Today?</h2>
+	  <a href="book.html" class="bg-white text-emerald-600 px-6 py-3 rounded font-semibold">
+		Book Appointment
+	  </a>
+	</section>
 
-<!-- ✅ CTA -->
-<section class="bg-emerald-500 text-white text-center py-16 mt-16">
-  <h2 class="text-3xl font-bold mb-4">Need a Doctor Today?</h2>
-  <a href="book.html" class="bg-white text-emerald-600 px-6 py-3 rounded font-semibold">
-    Book Appointment
-  </a>
-</section>
+	<!-- ✅ FOOTER -->
+	<footer class="bg-emerald-600 text-white mt-16">
+	  <div class="text-center py-4">
+		© 2026 MediCare | All Rights Reserved
+	  </div>
+	</footer>
 
-<!-- ✅ FOOTER -->
-<footer class="bg-emerald-600 text-white mt-16">
-  <div class="text-center py-4">
-    © 2026 MediCare | All Rights Reserved
-  </div>
-</footer>
+	<!-- ✅ JS -->
+	<script>
+	const menuBtn = document.getElementById("menuBtn");
+	const mobileMenu = document.getElementById("mobileMenu");
 
-<!-- ✅ JS -->
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
+	menuBtn.addEventListener("click", () => {
+	  mobileMenu.classList.toggle("hidden");
+	});
+	</script>
 
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-</script>
-
-</body>
-</html>
+	</body>
+	</html>
