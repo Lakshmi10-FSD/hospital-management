@@ -10,17 +10,14 @@
 <!-- ✅ NAVBAR -->
 <nav class="bg-emerald-400 text-white p-4 shadow-md">
   <div class="flex justify-between items-center">
-    
     <h1 class="font-bold text-lg">🏥 MediCare</h1>
 
-    <!-- DESKTOP -->
     <div class="hidden md:flex space-x-6 font-medium">
       <a href="index.html" class="underline">Home</a>
-      <a href="book.html" class="hover:underline">Book</a>
-      <a href="appoinments.html" class="hover:underline">Appointments</a>
+      <a href="book.html">Book</a>
+      <a href="appoinments.html">Appointments</a>
     </div>
 
-    <!-- MOBILE -->
     <button id="menuBtn" class="md:hidden text-2xl">☰</button>
   </div>
 
@@ -31,87 +28,91 @@
   </div>
 </nav>
 
-<!-- ✅ HERO SECTION -->
+<!-- ✅ HERO -->
 <section class="text-center py-20 bg-gradient-to-r from-green-400 to-green-300 text-white">
   <h1 class="text-4xl md:text-5xl font-bold mb-4">
     Book Doctor Appointments Easily
   </h1>
-
   <p class="text-lg mb-6">
     Fast, simple & reliable healthcare booking system
   </p>
 
-  <div class="space-x-4">
-    <a href="book.html"
-      class="bg-white text-green-600 px-6 py-2 rounded font-semibold hover:bg-gray-200">
-      Book Now
-    </a>
+  <a href="book.html" class="bg-white text-green-600 px-6 py-2 rounded font-semibold mr-2">
+    Book Now
+  </a>
 
-    <a href="appoinments.html"
-      class="border border-white px-6 py-2 rounded hover:bg-white hover:text-green-600">
-      View Appointments
-    </a>
-  </div>
+  <a href="appoinments.html" class="border border-white px-6 py-2 rounded">
+    View Appointments
+  </a>
 </section>
 
 <!-- ✅ FEATURES -->
 <section class="max-w-5xl mx-auto mt-12 grid md:grid-cols-3 gap-6 px-4">
 
-  <div class="bg-white p-6 rounded-xl shadow text-center hover:shadow-lg">
-    <h3 class="text-xl font-semibold mb-2">⚡ Fast Booking</h3>
-    <p class="text-gray-600">Book appointments in seconds</p>
+  <div class="bg-white p-6 rounded-xl shadow text-center">
+    <h3 class="text-xl font-semibold">⚡ Fast Booking</h3>
+    <p class="text-gray-600">Book in seconds</p>
   </div>
 
-  <div class="bg-white p-6 rounded-xl shadow text-center hover:shadow-lg">
-    <h3 class="text-xl font-semibold mb-2">👨‍⚕️ Expert Doctors</h3>
-    <p class="text-gray-600">Choose from top specialists</p>
+  <div class="bg-white p-6 rounded-xl shadow text-center">
+    <h3 class="text-xl font-semibold">👨‍⚕️ Expert Doctors</h3>
+    <p class="text-gray-600">Top specialists</p>
   </div>
 
-  <div class="bg-white p-6 rounded-xl shadow text-center hover:shadow-lg">
-    <h3 class="text-xl font-semibold mb-2">📅 Easy Management</h3>
-    <p class="text-gray-600">View & manage appointments anytime</p>
+  <div class="bg-white p-6 rounded-xl shadow text-center">
+    <h3 class="text-xl font-semibold">📅 Easy Management</h3>
+    <p class="text-gray-600">Manage anytime</p>
   </div>
 
 </section>
 
-<!-- ✅ FOOTER (UPDATED) -->
-<footer class="bg-emerald-600 text-white mt-16">
-  
-  <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-center md:text-left">
+<!-- ✅ SERVICES -->
+<section class="max-w-6xl mx-auto mt-16 px-4">
+  <h2 class="text-3xl font-bold text-center mb-8 text-emerald-600">Our Services</h2>
 
-    <!-- ABOUT -->
-    <div>
-      <h2 class="font-bold text-lg mb-2">🏥 MediCare</h2>
-      <p class="text-sm text-emerald-100">
-        Your trusted healthcare partner. Book doctor appointments easily and manage them anytime.
-      </p>
-    </div>
-
-    <!-- QUICK LINKS -->
-    <div>
-      <h2 class="font-bold text-lg mb-2">Quick Links</h2>
-      <ul class="space-y-1 text-sm">
-        <li><a href="index.html" class="hover:text-emerald-200">Home</a></li>
-        <li><a href="book.html" class="hover:text-emerald-200">Book</a></li>
-        <li><a href="appoinments.html" class="hover:text-emerald-200">Appointments</a></li>
-      </ul>
-    </div>
-
-    <!-- CONTACT -->
-    <div>
-      <h2 class="font-bold text-lg mb-2">Contact</h2>
-      <p class="text-sm">📍 Chennai, India</p>
-      <p class="text-sm">📞 +91 98765 43210</p>
-      <p class="text-sm">✉ medicare@gmail.com</p>
-    </div>
-
+  <div class="grid md:grid-cols-4 gap-6 text-center">
+    <div class="bg-white p-6 rounded-xl shadow">🩺 General Checkup</div>
+    <div class="bg-white p-6 rounded-xl shadow">❤️ Cardiology</div>
+    <div class="bg-white p-6 rounded-xl shadow">🦷 Dental Care</div>
+    <div class="bg-white p-6 rounded-xl shadow">👶 Pediatrics</div>
   </div>
+</section>
 
-  <!-- BOTTOM -->
-  <div class="text-center text-sm bg-emerald-800 py-3 text-emerald-200">
+<!-- ✅ DOCTORS -->
+<section class="bg-gray-50 mt-16 py-16">
+  <h2 class="text-3xl font-bold text-center mb-10 text-emerald-600">Our Doctors</h2>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 px-4">
+    <div class="bg-white p-6 rounded-xl shadow text-center">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-24 h-24 mx-auto rounded-full mb-3">
+      <h3>Dr. Arjun</h3>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow text-center">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-24 h-24 mx-auto rounded-full mb-3">
+      <h3>Dr. Priya</h3>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow text-center">
+      <img src="https://randomuser.me/api/portraits/men/75.jpg" class="w-24 h-24 mx-auto rounded-full mb-3">
+      <h3>Dr. Rahul</h3>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ CTA -->
+<section class="bg-emerald-500 text-white text-center py-16 mt-16">
+  <h2 class="text-3xl font-bold mb-4">Need a Doctor Today?</h2>
+  <a href="book.html" class="bg-white text-emerald-600 px-6 py-3 rounded font-semibold">
+    Book Appointment
+  </a>
+</section>
+
+<!-- ✅ FOOTER -->
+<footer class="bg-emerald-600 text-white mt-16">
+  <div class="text-center py-4">
     © 2026 MediCare | All Rights Reserved
   </div>
-
 </footer>
 
 <!-- ✅ JS -->
@@ -119,7 +120,7 @@
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
-menuBtn?.addEventListener("click", () => {
+menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
 </script>
